@@ -6,7 +6,10 @@ jobs:
     parameters:
       python-version:
         type: string
-    parallelism: 4
+      parallel-test:
+        type: integer
+        default: 2
+    parallelism: <<parameters.parallel-test>>
     docker:
       - image: circleci/python:<<parameters.python-version>>
     steps:
